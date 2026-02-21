@@ -3,58 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>twoja matka</title>
+    <title>Animacja</title>
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            background-color: #000;
         }
 
-        #dynamiczny-tekst {
+        .dynamiczny-tekst {
             font-size: 5rem;
             font-weight: 900;
             text-transform: uppercase;
             text-align: center;
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
 
-    <h1 id="dynamiczny-tekst">cwel</h1><p>
-    <h1 id="dynamiczny-tekst">cwel</h1><p>
-    <h1 id="dynamiczny-tekst">cwel</h1><p>
-    <h1 id="dynamiczny-tekst">cwel</h1><p>
-    <h1 id="dynamiczny-tekst">cwel</h1><p>
-
+    <h1 class="dynamiczny-tekst">Cwel</h1>
+    <h1 class="dynamiczny-tekst">Cwel</h1>
+    <h1 class="dynamiczny-tekst">Cwel</h1>
+    <h1 class="dynamiczny-tekst">Cwel</h1>
+    <h1 class="dynamiczny-tekst">Cwel</h1>
+    <h1 class="dynamiczny-tekst">Cwel</h1>
+    <h1 class="dynamiczny-tekst">Cwel</h1>
 
     <script>
-        const tekst = document.getElementById('dynamiczny-tekst');
-        let hue = 0; // Odcień (0-360)
+        const napisy = document.querySelectorAll('.dynamiczny-tekst');
+        let hue = 0;
 
         function animujKolor() {
             hue++;
-            
-            if (hue >= 360) {
-                hue = 0;
-            }
+            if (hue >= 360) hue = 0;
 
-            tekst.style.color = `hsl(${hue}, 100%, 50%)`;
+            napisy.forEach((napis) => {
+                napis.style.color = `hsl(${hue}, 100%, 50%)`;
+            });
 
             requestAnimationFrame(animujKolor);
         }
 
-        // Start animacji
         animujKolor();
     </script>
-
 </body>
-
 </html>
-
-
-
-
-
